@@ -77,79 +77,62 @@
         },
 
         async created(){
-            this.loading = true
-            await this.fetchStations().then((response) => {
-                if(response.status === "info"){
-                    this.$message.info(response.message);
-                }
+            // this.loading = true
+            // await this.fetchStations().then((response) => {
+            //     if(response.status === "info"){
+            //         this.$message.info(response.message);
+            //     }
                 
-                else if(response.status === "success"){
-                    this.$message.success(response.message);
-                }
+            //     else if(response.status === "success"){
+            //         this.$message.success(response.message);
+            //     }
                 
-                else if(response.status === "warn"){
-                    this.$message.warn(response.message);
-                }
+            //     else if(response.status === "warn"){
+            //         this.$message.warn(response.message);
+            //     }
                 
-                if(response.status === "error"){
-                    this.$message.error(response.message);
-                }
-            })
+            //     if(response.status === "error"){
+            //         this.$message.error(response.message);
+            //     }
+            // })
 
-            await this.fetchFleets().then((response) => {
-                if(response.status === "info"){
-                    this.$message.info(response.message);
-                }
+            // await this.fetchFleets().then((response) => {
+            //     if(response.status === "info"){
+            //         this.$message.info(response.message);
+            //     }
                 
-                else if(response.status === "success"){
-                    this.$message.success(response.message);
-                }
+            //     else if(response.status === "success"){
+            //         this.$message.success(response.message);
+            //     }
                 
-                else if(response.status === "warn"){
-                    this.$message.warn(response.message);
-                }
+            //     else if(response.status === "warn"){
+            //         this.$message.warn(response.message);
+            //     }
                 
-                if(response.status === "error"){
-                    this.$message.error(response.message);
-                }
-            })
+            //     if(response.status === "error"){
+            //         this.$message.error(response.message);
+            //     }
+            // })
 
-            await this.fetchConductors().then((response) => {
-                if(response.status === "info"){
-                    this.$message.info(response.message);
-                }
+            // await this.fetchConductors().then((response) => {
+            //     if(response.status === "info"){
+            //         this.$message.info(response.message);
+            //     }
                 
-                else if(response.status === "success"){
-                    this.$message.success(response.message);
-                }
+            //     else if(response.status === "success"){
+            //         this.$message.success(response.message);
+            //     }
                 
-                else if(response.status === "warn"){
-                    this.$message.warn(response.message);
-                }
+            //     else if(response.status === "warn"){
+            //         this.$message.warn(response.message);
+            //     }
                 
-                if(response.status === "error"){
-                    this.$message.error(response.message);
-                }
-            })
-
-            // await this.fetchAllDepartments().then((response) => {
-                // if(response.status === "info"){
-                //     this.$message.info(response.message);
-                // }
-                
-                // else if(response.status === "success"){
-                //     this.$message.success(response.message);
-                // }
-                
-                // else if(response.status === "warn"){
-                //     this.$message.warn(response.message);
-                // }
-                
-        //         if(response.status === "error"){
-        //             this.$message.error(response.message);
-        //         }
-        //     })
-            this.loading = false
+            //     if(response.status === "error"){
+            //         this.$message.error(response.message);
+            //     }
+            // })
+            
+            // this.loading = false
         },
 
         // mounted(){

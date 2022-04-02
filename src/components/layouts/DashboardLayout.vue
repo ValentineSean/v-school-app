@@ -18,7 +18,7 @@
             <span>Dashboard</span>
         </a-menu-item>
 
-        <a-sub-menu key="2">
+        <!-- <a-sub-menu key="2">
           <span slot="title"
             ><a-icon type="rocket"></a-icon><span>Trips</span></span
           >
@@ -37,21 +37,21 @@
           <a-menu-item key="3d" @click="toAllTrips">
             All
           </a-menu-item>
-        </a-sub-menu>
+        </a-sub-menu> -->
 
         <a-menu-item key="4" @click="toFleets">
             <a-icon type="car" />
-            <span>Fleets</span>
+            <span>Subjects</span>
         </a-menu-item>
 
         <a-menu-item key="5" @click="toConductors">
             <a-icon type="idcard" />
-            <span>Conductors</span>
+            <span>Instructors</span>
         </a-menu-item>
 
         <a-menu-item key="6" @click="toStations">
             <a-icon type="cluster" />
-            <span>Stations</span>
+            <span>Students</span>
         </a-menu-item>
 
         <a-menu-item key="7" @click="toRoutes">
