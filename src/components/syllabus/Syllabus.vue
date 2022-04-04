@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>{{ syllabus["subject_name"] }} Syllabus</h1>
+        <h1>{{ syllabus["subject_name"] }} Syllabus - {{ syllabus["subject_progress"] }}% Covered</h1>
 
         <a-collapse>
             <a-collapse-panel v-for="chapter in syllabus['chapters']" :key="chapter['chapter_id']" :header="chapter['chapter_name']">
@@ -19,6 +19,7 @@
 <script>
     let syllabus = {
         subject_name: "Mathematics",
+        subject_progress: 74.8,
         chapters: [
             {
                 chapter_id: 0,
