@@ -6,7 +6,7 @@
                 <div :style="{ background: '', padding: '', textAlign: '' }">
                     <a-row :gutter="16" :style="{ margin: '12px auto 0 auto', border: '' }">
                         <a-col :span="8" v-for="subject in subjects" :key="subject['_id']" :style="{ margin: '12px auto' }">
-                            <a-card hoverable style="width: 300px" @click="openSubjectDetails(subject)" :style="{ border: '' }">
+                            <a-card hoverable style="width: 300px" @click="openSyllabus(subject)" :style="{ border: '' }">
 
                                 <!-- <template slot="actions" class="ant-card-actions">
                                     <span :style="{ display: 'flex', border: '', padding: '0 24px' }">
@@ -60,7 +60,11 @@
             }
         },
 
-        methods: {},
+        methods: {
+            openSyllabus(){
+                this.$router.push({ name: "Syllabus" })
+            }
+        },
 
         async created(){},
 

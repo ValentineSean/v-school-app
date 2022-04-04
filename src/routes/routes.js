@@ -9,6 +9,7 @@ import BlankLayout from "../components/layouts/BlankLayout.vue"
 import Login from "../components/auth/Login.vue"
 import Dashboard from "../components/dashboard/Dashboard.vue"
 import Subjects from "../components/subjects/Subjects.vue"
+import Syllabus from "../components/syllabus/Syllabus.vue"
 
 const routes = [
     {
@@ -33,6 +34,15 @@ const routes = [
       path: "/subjects",
       name: "Subjects",
       component: Subjects,
+      meta: {
+        layout: DashboardLayout,
+      }
+    },
+
+    {
+      path: "/syllabus",
+      name: "Syllabus",
+      component: Syllabus,
       meta: {
         layout: DashboardLayout,
       }
