@@ -39,7 +39,7 @@
           </a-menu-item>
         </a-sub-menu> -->
 
-        <a-menu-item key="4" @click="toFleets">
+        <a-menu-item key="4" @click="toSubjects">
             <a-icon type="car" />
             <span>Subjects</span>
         </a-menu-item>
@@ -153,8 +153,8 @@
             // console.log("Predictions")
         },
 
-        toFleets(){
-            this.$router.replace({ name: "Fleets" })
+        toSubjects(){
+            this.$router.replace({ name: "Subjects" })
             // console.log("Fleet")
         },
 
