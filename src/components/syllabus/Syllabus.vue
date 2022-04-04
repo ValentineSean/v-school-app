@@ -1,15 +1,18 @@
 <template>
     <div>
-        <h1>{{ syllabus["subject_name"] }}</h1>
-        <a-list item-layout="horizontal" :data-source="syllabus['chapters']">
-            <a-list-item slot="renderItem" slot-scope="chapter">
-            <a-list-item-meta
-                description="Ant Design, a design language for background applications, is refined by Ant UED Team"
-            >
-                <span slot="title">{{ chapter['chapter_name'] }}</span>
-            </a-list-item-meta>
-            </a-list-item>
-        </a-list>
+        <h1>{{ syllabus["subject_name"] }} Syllabus</h1>
+
+        <a-collapse>
+            <a-collapse-panel v-for="chapter in syllabus['chapters']" :key="chapter['chapter_id']" :header="chapter['chapter_name']">
+                <a-list item-layout="horizontal" :data-source="chapter['subheads']">
+                    <a-list-item slot="renderItem" slot-scope="subhead">
+                        <a-list-item-meta>
+                            <span slot="title">{{ subhead['subhead_name'] }}</span>
+                        </a-list-item-meta>
+                    </a-list-item>
+                </a-list>
+            </a-collapse-panel>
+        </a-collapse>
     </div>
 </template>
 
@@ -18,6 +21,8 @@
         subject_name: "Mathematics",
         chapters: [
             {
+                chapter_id: 0,
+
                 chapter_name: "Sets 1",
                 
                 objectives: [
@@ -28,20 +33,25 @@
 
                 subheads: [
                     {
+                        subhead_id: 0,
                         subhead_name: "Venn Diagram",
                     },
 
                     {
+                        subhead_id: 1,
                         subhead_name: "Intersection",
                     },
 
                     {
+                        subhead_id: 2,
                         subhead_name: "Union",
                     },
                 ]
             },
 
             {
+                chapter_id: 1,
+
                 chapter_name: "Factorization 1",
 
                 objectives: [
