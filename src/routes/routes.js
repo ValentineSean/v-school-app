@@ -10,6 +10,7 @@ import Login from "../components/auth/Login.vue"
 import Dashboard from "../components/dashboard/Dashboard.vue"
 import Subjects from "../components/subjects/Subjects.vue"
 import Syllabus from "../components/syllabus/Syllabus.vue"
+import ViewMaterial from "../components/subjects_material/ViewMaterial.vue"
 
 const routes = [
     {
@@ -43,6 +44,15 @@ const routes = [
       path: "/syllabus",
       name: "Syllabus",
       component: Syllabus,
+      meta: {
+        layout: DashboardLayout,
+      }
+    },
+
+    {
+      path: "/view-material",
+      name: "View Material",
+      component: ViewMaterial,
       meta: {
         layout: DashboardLayout,
       }

@@ -6,7 +6,7 @@
             <a-collapse-panel v-for="chapter in syllabus['chapters']" :key="chapter['chapter_id']" :header="chapter['chapter_name']">
                 <a-list item-layout="horizontal" :data-source="chapter['subheads']">
                     <a-list-item slot="renderItem" slot-scope="subhead">
-                        <a-list-item-meta>
+                        <a-list-item-meta @click="toViewMaterial(chapter)">
                             <span slot="title">{{ subhead['subhead_name'] }}</span>
                         </a-list-item-meta>
                     </a-list-item>
@@ -80,7 +80,11 @@
             }
         },
 
-        methods: {},
+        methods: {
+            toViewMaterial(){
+                this.$router.push({ name: "View Material" })
+            }
+        },
 
         async created(){},
 
