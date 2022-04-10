@@ -1,5 +1,7 @@
 <template>
     <div>
+        <CreateTopic @handleHide="hideCreateTopic" :createTopicVisible="createTopicVisible" />
+
         <a-row>
             <a-col :span="12">
                 <h1>Math Topics</h1>
@@ -9,6 +11,7 @@
                 <a-button
                     type="primary"
                     :style="{ float: 'right' }"
+                    @click="openCreateTopic"
                 >
                     create topic
                 </a-button>
@@ -54,6 +57,8 @@
 </template>
 
 <script>
+    import CreateTopic from "../../data_entry/topics/CreateTopic"
+
     let topics = [
         {
             _id: {
@@ -81,15 +86,27 @@
     export default{
         name: "Topics",
 
-        components: {},
+        components: {
+            CreateTopic,
+        },
 
         data(){
             return{
+                createTopicVisible: false,
                 topics,
             }
         },
 
         methods: {
+            openCreateTopic(){
+              this.createTopicVisible = true
+              // console.log("Create employee")
+            },
+
+            hideCreateTopic(){
+              this.createTopicVisible = false
+            },
+
             toWatchVideo(){
                 this.$router.push({ name: "Watch Video" })
             }
