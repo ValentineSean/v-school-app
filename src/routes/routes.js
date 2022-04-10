@@ -9,8 +9,8 @@ import BlankLayout from "../components/layouts/BlankLayout.vue"
 import Login from "../components/auth/Login.vue"
 import Dashboard from "../components/dashboard/Dashboard.vue"
 import Subjects from "../components/subjects/Subjects.vue"
-import Syllabus from "../components/syllabus/Syllabus.vue"
-import ViewMaterial from "../components/subjects_material/ViewMaterial.vue"
+import Topics from "../components/topics/Topics.vue"
+import WatchVideo from "../components/topics_material/WatchVideo.vue"
 
 const routes = [
     {
@@ -41,18 +41,18 @@ const routes = [
     },
 
     {
-      path: "/syllabus",
-      name: "Syllabus",
-      component: Syllabus,
+      path: "/topics",
+      name: "Topics",
+      component: Topics,
       meta: {
         layout: DashboardLayout,
       }
     },
 
     {
-      path: "/view-material",
-      name: "View Material",
-      component: ViewMaterial,
+      path: "/watch-video",
+      name: "Watch Video",
+      component: WatchVideo,
       meta: {
         layout: DashboardLayout,
       }
