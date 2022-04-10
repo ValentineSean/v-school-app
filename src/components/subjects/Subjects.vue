@@ -1,7 +1,21 @@
 <template>
     <div>
         <a-layout-content :style="{ margin: '0 12px', border: '' }">
-            <div :style="{ background: '#fff' }">
+            <div :style="{ background: '' }">
+                <a-row>
+                    <a-col :span="12">
+                        <h1>Subjects</h1>
+                    </a-col>
+                    
+                    <a-col :span="12">
+                        <a-button
+                            type="primary"
+                            :style="{ float: 'right' }"
+                        >
+                            create new
+                        </a-button>
+                    </a-col>
+                </a-row>
 
                 <div :style="{ background: '', padding: '', textAlign: '' }">
                     <a-row :gutter="16" :style="{ margin: '12px auto 0 auto', border: '' }">
@@ -14,7 +28,10 @@
                                     </span>
                                 </template> -->
 
-                                <a-card-meta :title="subject['subject_name']" :description="`Progress: ${subject['progress']}%`">
+                                <a-card-meta
+                                    :title="subject['subject_name']"
+                                    :style="{ border: '', textAlign: 'center' }"
+                                >
                                 </a-card-meta>
                             </a-card>
                         </a-col>
