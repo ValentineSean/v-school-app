@@ -1,7 +1,19 @@
 <template>
     <div>
-        <h1>Math Topics</h1>
+        <a-row>
+            <a-col :span="12">
+                <h1>Math Topics</h1>
+            </a-col>
 
+            <a-col :span="12">
+                <a-button
+                    type="primary"
+                    :style="{ float: 'right' }"
+                >
+                    create topic
+                </a-button>
+            </a-col>
+        </a-row>
         <!-- <a-collapse>
             <a-collapse-panel v-for="chapter in syllabus['chapters']" :key="chapter['chapter_id']" :header="chapter['chapter_name']">
                 <a-list item-layout="horizontal" :data-source="chapter['subheads']">

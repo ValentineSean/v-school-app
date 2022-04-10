@@ -1,5 +1,7 @@
 <template>
     <div>
+        <CreateSubject @handleHide="hideCreateSubject" :createSubjectVisible="createSubjectVisible" />
+
         <a-layout-content :style="{ margin: '0 12px', border: '' }">
             <div :style="{ background: '' }">
                 <a-row>
@@ -11,8 +13,9 @@
                         <a-button
                             type="primary"
                             :style="{ float: 'right' }"
+                            @click="openCreateSubject"
                         >
-                            create new
+                            create subject
                         </a-button>
                     </a-col>
                 </a-row>
@@ -43,6 +46,8 @@
 </template>
 
 <script>
+    import CreateSubject from "../../data_entry/subjects/CreateSubject"
+
     let subjects = [
         {
             _id: 1,
@@ -69,15 +74,27 @@
     export default{
         name: "Subjects",
 
-        components: {},
+        components: {
+            CreateSubject,
+        },
 
         data(){
             return{
+                createSubjectVisible: false,
                 subjects,
             }
         },
 
         methods: {
+            openCreateSubject(){
+              this.createSubjectVisible = true
+              // console.log("Create employee")
+            },
+
+            hideCreateSubject(){
+              this.createSubjectVisible = false
+            },
+
             openTopics(){
                 this.$router.push({ name: "Topics" })
             }
