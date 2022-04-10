@@ -1,6 +1,7 @@
 <template>
     <div>
         <CreateTopic @handleHide="hideCreateTopic" :createTopicVisible="createTopicVisible" />
+        <UploadMaterial @handleHide="hideUploadMaterial" :uploadMaterialVisible="uploadMaterialVisible" />
 
         <a-row>
             <a-col :span="12">
@@ -35,7 +36,7 @@
                     <span slot="title">{{ topic['topic_name'] }}</span>
                 </a-list-item-meta>
 
-                <a-button
+                <!-- <a-button
                     type="primary"
                     @click.prevent="toWatchVideo(topic)"
                     :style="{ float: 'right' }"
@@ -43,6 +44,16 @@
                     v-if="topic['upload_status'] === 'uploaded'"
                 >
                     watch video
+                </a-button> -->
+
+                <a-button
+                    type="primary"
+                    @click.prevent="openUploadMaterial(topic)"
+                    :style="{ float: 'right' }"
+                    title="Click to upload material"
+                    v-if="topic['upload_status'] === 'uploaded'"
+                >
+                    upload material
                 </a-button>
 
                 <h4
@@ -58,6 +69,7 @@
 
 <script>
     import CreateTopic from "../../data_entry/topics/CreateTopic"
+    import UploadMaterial from "../../data_entry/topics_material/UploadMaterial"
 
     let topics = [
         {
@@ -88,11 +100,13 @@
 
         components: {
             CreateTopic,
+            UploadMaterial,
         },
 
         data(){
             return{
                 createTopicVisible: false,
+                uploadMaterialVisible: false,
                 topics,
             }
         },
@@ -105,6 +119,14 @@
 
             hideCreateTopic(){
               this.createTopicVisible = false
+            },
+
+            openUploadMaterial(){
+              this.uploadMaterialVisible = true
+            },
+
+            hideUploadMaterial(){
+              this.uploadMaterialVisible = false
             },
 
             toWatchVideo(){
