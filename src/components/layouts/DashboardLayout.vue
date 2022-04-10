@@ -1,80 +1,12 @@
 <template>
-  <a-layout id="components-layout-demo-custom-trigger" :style="{ minHeight: '100vh', maxHeight: '100vh' }">
-    <a-layout-sider class="layout-sider"
-      v-model="collapsed"
-      :trigger="null"
-      collapsible
-      breakpoint="lg"
-      @breakpoint="onBreakpoint"
-    >
-      <div class="logo" :style="{ border: '', height: '6%' }">
-          <h1 v-if="!collapsed" :style="{ color: 'white', margin: 'auto 0', fontWeight: 'bold', fontSize: 'medium' }">VSChool</h1>
-      </div>
-
-      <!-- <a-menu class="layout-sider-menu" theme="dark" mode="inline" :default-selected-keys="default_tab"> -->
-      <a-menu class="layout-sider-menu" theme="dark" mode="inline">
-        <a-menu-item key="1" @click="toDashboard">
-            <a-icon type="dashboard" />
-            <span>Dashboard</span>
-        </a-menu-item>
-
-        <!-- <a-sub-menu key="2">
-          <span slot="title"
-            ><a-icon type="rocket"></a-icon><span>Trips</span></span
-          >
-          <a-menu-item key="3a" @click="toMyTrip">
-            My Trip
-          </a-menu-item>
-
-          <a-menu-item key="3b" @click="toCurrentTrip">
-            Current
-          </a-menu-item>
-
-          <a-menu-item key="3c" @click="toOffloadedTrips">
-            Offloaded
-          </a-menu-item>
-
-          <a-menu-item key="3d" @click="toAllTrips">
-            All
-          </a-menu-item>
-        </a-sub-menu> -->
-
-        <a-menu-item key="4" @click="toSubjects">
-            <a-icon type="car" />
-            <span>Subjects</span>
-        </a-menu-item>
-
-        <a-menu-item key="5" @click="toConductors">
-            <a-icon type="idcard" />
-            <span>Instructors</span>
-        </a-menu-item>
-
-        <a-menu-item key="6" @click="toStations">
-            <a-icon type="cluster" />
-            <span>Students</span>
-        </a-menu-item>
-
-        <a-menu-item key="7" @click="toRoutes">
-            <a-icon type="pull-request" />
-            <span>Routes</span>
-        </a-menu-item>
-      </a-menu>
-    </a-layout-sider>
-    
-    <a-layout>
-      <a-layout-header :style="{ background: '#fff', padding: '0', display: 'flex' }">
-        <a-icon
-          class="trigger"
-          :type="collapsed ? 'menu-unfold' : 'menu-fold'"
-          @click="() => (collapsed = !collapsed)"
-        />
-
-        <h1 class="user-profile-description" :style="{ margin: 'auto 12px auto auto' }">
+  <a-layout>
+      <a-layout-header :style="{ position: 'fixed', zIndex: '1', width: '100%' }">
+        <!-- <div class="logo" /> -->
+        
+        <!-- <h1 class="user-profile-description" :style="{ margin: 'auto 12px auto auto' }">
             <a-icon :style="{fontSize: '20px'}" slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
             <a-dropdown :trigger="['click']">
               <span class="ant-drop-down-link" :style="{ cursor: 'pointer' }">
-                <!-- {{ getActiveUser["first_name"] }} {{ getActiveUser["last_name"] }} -->
-                <!-- {{ getActiveUser["email"] }} -->
                 Valentine Sean
                 <a-icon type="caret-down" style="color: rgba(0,0,0,.25)" />
               </span>
@@ -87,19 +19,47 @@
                 </a-menu-item>
               </a-menu>
             </a-dropdown>
-        </h1>
+        </h1> -->
+
+        <!-- v-model:selectedKeys="selectedKeys" -->
+        <a-menu
+          theme="dark"
+          mode="horizontal"
+          :style="{ lineHeight: '64px', border: '', padding: '' }"
+        >
+          <a-menu-item
+            key="1"
+            :style="{ border: '' }"
+            @click="toSubjects"
+          >
+            Subjects
+          </a-menu-item>
+
+          <a-menu-item key="2">Users</a-menu-item>
+          
+          <a-menu-item key="3" :style="{ float: 'right' }">
+            Valentine Sean
+          </a-menu-item>
+        </a-menu>
+
       </a-layout-header>
 
       <a-layout-content
-        :style="{ margin: '12px 12px', padding: '12px', background: '#fff', overflowY: 'scroll' }"
+         :style="{ padding: '12px 72px', marginTop: '64px', border: 'solid 1px blue', minHeight: '90vh', maxHeight: '90vh' }"
       >
+
+        <!-- <a-breadcrumb :style="{ margin: '16px 0' }">
+          <a-breadcrumb-item>Home</a-breadcrumb-item>
+          <a-breadcrumb-item>List</a-breadcrumb-item>
+          <a-breadcrumb-item>App</a-breadcrumb-item>
+        </a-breadcrumb> -->
+        
         <div class="loading-spinner" v-if="loading">
           <a-spin />
         </div>
 
         <slot v-if="!loading" />
       </a-layout-content>
-    </a-layout>
   </a-layout>
 </template>
 <script>
@@ -271,9 +231,9 @@
     transition: color 0.3s;
   }
 
-  #components-layout-demo-custom-trigger .trigger:hover {
+  /* #components-layout-demo-custom-trigger .trigger:hover {
     color: #1890ff;
-  }
+  } */
 
   #components-layout-demo-custom-trigger .logo {
     height: 32px;

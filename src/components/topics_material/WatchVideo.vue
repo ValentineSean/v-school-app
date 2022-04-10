@@ -1,36 +1,49 @@
 <template>
-    <div class="media-container">
-        <h1>Math: Set Theory</h1>
+    <div>
+        <a-row>
+            <a-col :span="18">
+                <div class="media-container">
+                    <h1>Math: Set Theory</h1>
 
-        <video
-            controls
-            class="video-player"
-        >
-            <source
-                class="audio-source"
-                src="audios/Introduction to Set Theory.mp3"
-                type="audio/mp3"
-            >
+                    <video
+                        controls
+                        class="video-player"
+                    >
+                        <source
+                            class="audio-source"
+                            src="audios/Introduction to Set Theory.mp3"
+                            type="audio/mp3"
+                        >
 
-            <track kind="subtitles" label="English" src="audios/set_theory.vtt" type="text/vtt" srclang="en" default>
-        </video>
+                        <track kind="subtitles" label="English" src="audios/set_theory.vtt" type="text/vtt" srclang="en" default>
+                    </video>
 
-        <!-- <h1>Generated Text</h1>
-        <div class="pdf-viewer">
-            <pdf
-                class="pdf-page"
-                :src="src"
-                v-for="x in page_count"
-                :key="x"
-                :page="x"
-            ></pdf>
+                    <!-- <h1>Generated Text</h1>
+                    <div class="pdf-viewer">
+                        <pdf
+                            class="pdf-page"
+                            :src="src"
+                            v-for="x in page_count"
+                            :key="x"
+                            :page="x"
+                        ></pdf>
 
-            <embed
-                class="pdf-viewer-util"
-                src="pdfs/SetTheory.pdf"
-                :style="{ color: '#1890ff' }"
-            >
-        </div> -->
+                        <embed
+                            class="pdf-viewer-util"
+                            src="pdfs/SetTheory.pdf"
+                            :style="{ color: '#1890ff' }"
+                        >
+                    </div> -->
+                </div>
+            </a-col>
+
+            <!-- <a-col :span="6">
+                <img
+                    src="images/Voice-Bots.jpg"
+                    class="app-image"
+                >
+            </a-col> -->
+        </a-row>
     </div>
 </template>
 
@@ -70,8 +83,11 @@
 <style>
 
     .media-container{
-        max-height: 100%;
-        min-height: 100%;
+        max-height: 50%;
+        min-height: 50%;
+        max-width: 100%;
+        min-width: 50%;
+        border: solid 5px yellow;
     }
 
     video{
@@ -91,5 +107,11 @@
         top: 50%;
         /* margin: auto; */
         transform: translateY(-100%);
+    }
+
+    .app-image{
+        transform: rotate(90deg);
+        border: solid 1px lime;
+        max-height: 100%;
     }
 </style>
