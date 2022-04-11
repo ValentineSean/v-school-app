@@ -46,6 +46,7 @@
 </template>
 
 <script>
+    import { mapActions, mapGetters } from "vuex"
     import CreateSubject from "../../data_entry/subjects/CreateSubject"
 
     let subjects = [
@@ -81,11 +82,14 @@
         data(){
             return{
                 createSubjectVisible: false,
+                loading: false,
                 subjects,
             }
         },
 
         methods: {
+            ...mapActions(["fetchSubjects"]),
+
             openCreateSubject(){
               this.createSubjectVisible = true
               // console.log("Create employee")
@@ -100,10 +104,25 @@
             }
         },
 
-        async created(){},
+        async created(){
+            this.loading = true
+
+            await this.fetchSubjects().then((response) => {
+                if(response["status"] === "success"){
+                    // this.$message.error(response["message"])
+                    this.subjects = this.getSubjects
+                }
+
+                else if(response["status"] === "error"){
+                    this.$message.error(response["message"])
+                }
+            })
+
+            this.loading = false
+        },
 
         mounted(){},
 
-        // computed: mapGetters([]),
+        computed: mapGetters(["getSubjects"]),
     }
 </script>
