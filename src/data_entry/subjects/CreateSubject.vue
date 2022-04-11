@@ -40,7 +40,7 @@
   </div>
 </template>
 <script>
-    // import { mapActions, mapGetters } from "vuex"
+    import { mapActions } from "vuex"
     
     export default {
         name: "CreateSubject",
@@ -62,7 +62,7 @@
         emits: ["handleHide"],
 
         methods: {
-            // ...mapActions(["createSubject"]),
+            ...mapActions(["createSubject"]),
             
             //   Create Subject
             async saveSubject(){
