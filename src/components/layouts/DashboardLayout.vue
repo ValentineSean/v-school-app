@@ -25,11 +25,11 @@
         <a-menu
           theme="dark"
           mode="horizontal"
-          :style="{ lineHeight: '64px', border: '', padding: '' }"
+          :style="{ lineHeight: '', fontWeight: 'bold', border: '', padding: '', margin: '6px 0', display: '' }"
         >
           <a-menu-item
             key="1"
-            :style="{ border: '' }"
+            :style="{ fontWeight: 'bold', border: '', margin: 'auto 0' }"
             @click="toSubjects"
           >
             Subjects
@@ -38,7 +38,23 @@
           <a-menu-item key="2">Users</a-menu-item>
           
           <a-menu-item key="3" :style="{ float: 'right' }">
-            Valentine Sean
+            
+            <!-- Valentine Sean -->
+            <a-dropdown :trigger="['click']">
+              <span class="ant-drop-down-link" :style="{ cursor: 'pointer' }">
+                <a-icon :style="{ fontSize: '20px' }" slot="prefix" type="user" style="white" />
+                Valentine Sean
+                <a-icon type="caret-down" style="white" />
+              </span>
+
+              <a-menu slot="overlay">
+                <a-menu-item>
+                  <span>
+                    logout
+                  </span>
+                </a-menu-item>
+              </a-menu>
+            </a-dropdown>
           </a-menu-item>
         </a-menu>
 
@@ -75,7 +91,7 @@
         drawer_visibility: false,
         desktop_size: true,
         tablet_size: false,
-        default_tab: "",
+        // default_tab: "",
         // default_sub_tab: null,
       };
     },
@@ -243,6 +259,11 @@
   }
 
   .layout-sider-menu{
+  }
+
+  .ant-menu-item-selected{
+    background: none !important;
+    background-color: none !important;
   }
 
   /* MEDIA QUERIES */
