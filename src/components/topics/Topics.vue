@@ -68,6 +68,7 @@
 </template>
 
 <script>
+    import { mapGetters } from "vuex"
     import CreateTopic from "../../data_entry/topics/CreateTopic"
     import UploadMaterial from "../../data_entry/topics_material/UploadMaterial"
 
@@ -134,10 +135,12 @@
             }
         },
 
-        async created(){},
+        async created(){
+            this.topics = this.getSubjectTopics
+        },
 
         mounted(){},
 
-        // computed: mapGetters([]),
+        computed: mapGetters(["getSubjectTopics"]),
     }
 </script>

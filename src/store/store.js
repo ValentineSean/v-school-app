@@ -6,6 +6,7 @@ import VuexPersistence from 'vuex-persist';
 // import auth from './modules/auth/auth';
 // import dashboard from './modules/dashboard/dashboard';
 import subjects from './modules/subjects';
+import topics from './modules/topics';
 
 
 Vue.use(Vuex);
@@ -19,6 +20,7 @@ const store = new Vuex.Store({
     // auth,
     // dashboard,
     subjects,
+    topics,
   },
 
   plugins: [vuexLocal.plugin],
