@@ -1,11 +1,15 @@
 <template>
     <div>
-        <CreateTopic @handleHide="hideCreateTopic" :createTopicVisible="createTopicVisible" />
+        <CreateTopic @handleHide="hideCreateTopic" :createTopicVisible="createTopicVisible" :subject_id="topics['subject_id']" />
         <UploadMaterial @handleHide="hideUploadMaterial" :uploadMaterialVisible="uploadMaterialVisible" />
 
         <a-row>
-            <a-col :span="12">
-                <h1 v-for="subject in getSubjects.filter((subject) => subject['_id']['$oid'] === topics[0]['subject_id'])" :key="subject['_id']['$oid']">{{ subject["subject_name"] }} Topics</h1>
+            <a-col :span="12" v-if="topics['subject_topics'].length > 0">
+                <h1 v-for="subject in getSubjects.filter((subject) => subject['_id']['$oid'] === topics['subject_id'])" :key="subject['_id']['$oid']">{{ subject["subject_name"] }} Topics</h1>
+            </a-col>
+
+            <a-col :span="12" v-if="topics['subject_topics'].length <= 0">
+                <h1 v-for="subject in getSubjects.filter((subject) => subject['_id']['$oid'] === topics['subject_id'])" :key="subject['_id']['$oid']">{{ subject["subject_name"] }} Topics</h1>
             </a-col>
 
             <a-col :span="12">
@@ -30,7 +34,7 @@
             </a-collapse-panel>
         </a-collapse> -->
 
-        <a-list item-layout="horizontal" :data-source="topics" bordered>
+        <a-list item-layout="horizontal" :data-source="topics['subject_topics']" bordered>
             <a-list-item slot="renderItem" slot-scope="topic">
                 <a-list-item-meta>
                     <span slot="title">{{ topic['topic_name'] }}</span>

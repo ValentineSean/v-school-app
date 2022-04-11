@@ -40,7 +40,7 @@
   </div>
 </template>
 <script>
-    // import { mapActions, mapGetters } from "vuex"
+    import { mapActions } from "vuex"
     
     export default {
         name: "CreateTopic",
@@ -57,18 +57,20 @@
 
         props: {
             createTopicVisible: Boolean,
+            subject_id: String,
         },
 
         emits: ["handleHide"],
 
         methods: {
-            // ...mapActions(["createSubject"]),
+            ...mapActions(["createTopic"]),
             
             //   Create Topic
             async saveTopic(){
                 this.createBtnLoading = true
 
                 let topic = {
+                    subject_id: this.subject_id,
                     topic_name: this.topic_name,
                 }
 
