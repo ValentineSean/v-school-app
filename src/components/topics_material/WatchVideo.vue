@@ -3,7 +3,20 @@
         <a-row>
             <a-col :span="18">
                 <div class="media-container">
-                    <h1>Math: Set Theory</h1>
+                    <h1>{{ topic_name }}</h1>
+
+                    <!-- <video
+                        controls
+                        class="video-player"
+                    >
+                        <source
+                            class="audio-source"
+                            :src="mp3_shared_link"
+                            type="audio/mp3"
+                        >
+
+                        <track kind="subtitles" label="English" :src="vtt_shared_link" type="text/vtt" srclang="en" default>
+                    </video> -->
 
                     <video
                         controls
@@ -17,40 +30,14 @@
 
                         <track kind="subtitles" label="English" src="audios/set_theory.vtt" type="text/vtt" srclang="en" default>
                     </video>
-
-                    <!-- <h1>Generated Text</h1>
-                    <div class="pdf-viewer">
-                        <pdf
-                            class="pdf-page"
-                            :src="src"
-                            v-for="x in page_count"
-                            :key="x"
-                            :page="x"
-                        ></pdf>
-
-                        <embed
-                            class="pdf-viewer-util"
-                            src="pdfs/SetTheory.pdf"
-                            :style="{ color: '#1890ff' }"
-                        >
-                    </div> -->
                 </div>
             </a-col>
-
-            <!-- <a-col :span="6">
-                <img
-                    src="images/Voice-Bots.jpg"
-                    class="app-image"
-                >
-            </a-col> -->
         </a-row>
     </div>
 </template>
 
 <script>
-    // import pdf from "vue-pdf"
-
-    // let loading_task = pdf.createLoadingTask("pdfs/SetTheory.pdf")
+    import { mapGetters } from "vuex"
 
     export default{
         name: "ViewMaterial",
@@ -63,12 +50,19 @@
             return{
                 // src: loading_task,
                 page_count: undefined,
+                topic_name: "",
+                mp3_shared_link: "",
+                vtt_shared_link: "",
             }
         },
 
         methods: {},
 
-        async created(){},
+        async created(){
+            this.topic_name = this.getCurrentVideo["topic_name"]
+            this.mp3_shared_link = this.getCurrentVideo["mp3_shared_link"]
+            this.vtt_shared_link = this.getCurrentVideo["vtt_shared_link"]
+        },
 
         mounted(){
             // this.src.promise.then(pdf => {
@@ -76,7 +70,7 @@
             // })
         },
 
-        // computed: mapGetters([]),
+        computed: mapGetters(["getCurrentVideo"]),
     }
 </script>
 
@@ -87,22 +81,22 @@
         min-height: 50%;
         max-width: 100%;
         min-width: 50%;
-        border: solid 5px yellow;
+        /* border: solid 1px blue; */
     }
 
     video{
-        border: solid 1px blue;
+        border: solid 1px #2E3440;
         width: 100%;
         max-height: 50% !important;
     }
 
     .audio-source{
-        border: solid 3px lime;
+        /* border: solid 3px lime; */
     }
 
     ::cue{
         font-size: 24px;
-        color: blue;
+        color: #2E3440;
         background: white;
         top: 50%;
         /* margin: auto; */

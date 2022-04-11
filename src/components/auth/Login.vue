@@ -162,6 +162,8 @@
             //     console.log(this.getLoggedIn)
             //     this.$router.replace({ name: "Dashboard" })
             // }
+
+            this.$router.replace({ name: "Subjects" })
         },
 
         // computed: mapGetters(["getLoggedIn"])

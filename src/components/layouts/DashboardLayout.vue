@@ -35,14 +35,14 @@
             Subjects
           </a-menu-item>
 
-          <a-menu-item
+          <!-- <a-menu-item
             key="2"
             @click="toUsers"
           >
             Users
-          </a-menu-item>
+          </a-menu-item> -->
           
-          <a-menu-item key="3" :style="{ float: 'right' }">
+          <a-menu-item key="2" :style="{ float: 'right' }">
             
             <!-- Valentine Sean -->
             <a-dropdown :trigger="['click']">

@@ -72,7 +72,7 @@
 </template>
 
 <script>
-    import { mapGetters } from "vuex"
+    import { mapActions, mapGetters } from "vuex"
     import CreateTopic from "../../data_entry/topics/CreateTopic"
     import UploadMaterial from "../../data_entry/topics_material/UploadMaterial"
 
@@ -118,6 +118,8 @@
         },
 
         methods: {
+            ...mapActions(["refreshCurrentVideo"]),
+
             openCreateTopic(){
               this.createTopicVisible = true
               // console.log("Create employee")
@@ -136,8 +138,10 @@
               this.uploadMaterialVisible = false
             },
 
-            toWatchVideo(){
-                this.$router.push({ name: "Watch Video" })
+            async toWatchVideo(topic){
+                await this.refreshCurrentVideo(topic).then(() => {
+                    this.$router.push({ name: "Watch Video" })
+                })
             }
         },
 

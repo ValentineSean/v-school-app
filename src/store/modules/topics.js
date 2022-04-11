@@ -2,11 +2,12 @@ import axios from "axios"
 
 const state = {
     subject_topics: [],
-    // project: {}
+    current_video: {}
 }
 
 const getters = {
     getSubjectTopics: (state) => state.subject_topics,
+    getCurrentVideo: (state) => state.current_video,
 }
 
 const actions = {
@@ -109,12 +110,11 @@ const actions = {
                 "message": "Server technical problem"
             }
         }
-    }
+    },
 
-    // async refreshSubject_topic({ commit }, refreshed_subject_topic){
-    //     console.log(refreshed_subject_topic)
-    //     commit("setRefreshedSubject_topic", refreshed_subject_topic)
-    // },
+    async refreshCurrentVideo({ commit }, topic){
+        commit("setRefreshedCurrentVideo", topic)
+    },
 
     
 }
@@ -131,6 +131,8 @@ const mutations = {
             state.subject_topics.subject_topics.splice(index, 1, updated_topic)
         }
     },
+
+    setRefreshedCurrentVideo: (state, topic) => (state.current_video = topic),
 
     // setRefreshedSubject_topic: (state, refreshed_subject_topic) => {
     //     const index = state.subject_topics.findIndex(x => x._id.$oid === refreshed_subject_topic["_id"]["$oid"])
