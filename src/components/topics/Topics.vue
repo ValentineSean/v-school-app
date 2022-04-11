@@ -1,7 +1,7 @@
 <template>
     <div>
         <CreateTopic @handleHide="hideCreateTopic" :createTopicVisible="createTopicVisible" :subject_id="topics['subject_id']" />
-        <UploadMaterial @handleHide="hideUploadMaterial" :uploadMaterialVisible="uploadMaterialVisible" />
+        <UploadMaterial @handleHide="hideUploadMaterial" :uploadMaterialVisible="uploadMaterialVisible" :topic_id="topic_id" />
 
         <a-row>
             <a-col :span="12" v-if="topics['subject_topics'].length > 0">
@@ -40,32 +40,32 @@
                     <span slot="title">{{ topic['topic_name'] }}</span>
                 </a-list-item-meta>
 
-                <!-- <a-button
-                    type="primary"
+                <a-button
+                    type=""
                     @click.prevent="toWatchVideo(topic)"
                     :style="{ float: 'right' }"
                     title="Click to watch video"
                     v-if="topic['upload_status'] === 'uploaded'"
                 >
                     watch video
-                </a-button> -->
+                </a-button>
 
                 <a-button
-                    type="primary"
-                    @click.prevent="openUploadMaterial(topic)"
+                    type=""
+                    @click.prevent="openUploadMaterial(topic['_id']['$oid'])"
                     :style="{ float: 'right' }"
                     title="Click to upload material"
-                    v-if="topic['upload_status'] === 'uploaded'"
+                    v-if="topic['upload_status'] === 'no_media'"
                 >
                     upload material
                 </a-button>
 
-                <h4
+                <!-- <h4
                     title="No media uploaded"
                     v-if="topic['upload_status'] === 'no_media'"
                 >
                     <i>No media</i>
-                </h4>
+                </h4> -->
             </a-list-item>
         </a-list>
     </div>
@@ -113,6 +113,7 @@
                 createTopicVisible: false,
                 uploadMaterialVisible: false,
                 topics,
+                topic_id: "",
             }
         },
 
@@ -126,8 +127,9 @@
               this.createTopicVisible = false
             },
 
-            openUploadMaterial(){
-              this.uploadMaterialVisible = true
+            openUploadMaterial(topic_id){
+                this.topic_id = topic_id
+                this.uploadMaterialVisible = true
             },
 
             hideUploadMaterial(){

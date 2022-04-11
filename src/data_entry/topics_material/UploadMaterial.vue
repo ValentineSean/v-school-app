@@ -40,7 +40,7 @@
   </div>
 </template>
 <script>
-    // import { mapActions, mapGetters } from "vuex"
+    import { mapActions } from "vuex"
     
     export default {
         name: "UploadMaterial",
@@ -57,12 +57,13 @@
 
         props: {
             uploadMaterialVisible: Boolean,
+            topic_id: String,
         },
 
         emits: ["handleHide"],
 
         methods: {
-            // ...mapActions(["createSubject"]),
+            ...mapActions(["uploadMaterial"]),
 
             previewAudio(event){
                 this.audio_file = event.target.files[0]
@@ -73,6 +74,7 @@
                 this.createBtnLoading = true
 
                 let material = {
+                    topic_id: this.topic_id,
                     audio_file: this.audio_file,
                 }
 
