@@ -84,7 +84,7 @@
 
             async authenticate(){
                 // console.log("Authenticate")
-                this.$router.push({ name: "Dashboard" })
+                this.$router.push({ name: "Subjects" })
                 // this.loginBtnLoading = true
 
                 // let user = {

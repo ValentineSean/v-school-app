@@ -10,6 +10,7 @@ import Login from "../components/auth/Login.vue"
 import Dashboard from "../components/dashboard/Dashboard.vue"
 import Subjects from "../components/subjects/Subjects.vue"
 import Topics from "../components/topics/Topics.vue"
+import Users from "../components/users/Users.vue"
 import WatchVideo from "../components/topics_material/WatchVideo.vue"
 
 const routes = [
@@ -44,6 +45,15 @@ const routes = [
       path: "/topics",
       name: "Topics",
       component: Topics,
+      meta: {
+        layout: DashboardLayout,
+      }
+    },
+
+    {
+      path: "/users",
+      name: "Users",
+      component: Users,
       meta: {
         layout: DashboardLayout,
       }

@@ -29,13 +29,18 @@
         >
           <a-menu-item
             key="1"
-            :style="{ fontWeight: 'bold', border: '', margin: 'auto 0' }"
+            :style="{ fontWeight: '', border: '', margin: '' }"
             @click="toSubjects"
           >
             Subjects
           </a-menu-item>
 
-          <a-menu-item key="2">Users</a-menu-item>
+          <a-menu-item
+            key="2"
+            @click="toUsers"
+          >
+            Users
+          </a-menu-item>
           
           <a-menu-item key="3" :style="{ float: 'right' }">
             
@@ -105,74 +110,15 @@
             // console.log("Dashboard")
         },
 
-        // toPredictions(){
-        //     this.$router.replace({ name: "Predictions" })
-        // },
-
-        toMyTrip(){
-            this.$router.replace({ name: "My Trip" })
-            // console.log("Predictions")
-        },
-
-        toCurrentTrip(){
-            this.$router.replace({ name: "Current Trip" })
-            // console.log("Predictions")
-        },
-
-        toOffloadedTrips(){
-            this.$router.replace({ name: "Offloaded Trips" })
-            // console.log("Predictions")
-        },
-
-        toAllTrips(){
-            this.$router.replace({ name: "All Trips" })
-            // console.log("Predictions")
-        },
-
         toSubjects(){
             this.$router.replace({ name: "Subjects" })
             // console.log("Fleet")
         },
 
-        toConductors(){
-            this.$router.replace({ name: "Conductors" })
+        toUsers(){
+            this.$router.replace({ name: "Users" })
             // console.log("Fleet")
         },
-
-        toStations(){
-            // this.$router.replace({ name: "Employees" })
-            console.log("Stations")
-        },
-
-        toRoutes(){
-            this.$router.replace({ name: "Routes" })
-        },
-
-        // On Breakpoint
-        onBreakpoint(){
-          this.tablet_size = true
-        },
-
-        // // Show Drawer
-        // showDrawer(){
-        //   this.drawer_visibility = true
-        // },
-
-        // closeDrawer(){
-        //   this.drawer_visibility = false
-        // },
-
-        // // LOGOUT
-        // async logout(){
-        //   this.loading = true
-        //   this.logoutUser(false)
-        //   window.sessionStorage.removeItem('vuex');
-        //   window.sessionStorage.clear()
-        //   this.$router.replace({ name: 'Login' });
-        //   this.$message.info("You have successfully logged out")
-        //   this.loading = false
-        //     // console.log("Logout function")
-        // }
     },
 
     created(){
