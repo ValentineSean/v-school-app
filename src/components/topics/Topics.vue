@@ -5,7 +5,7 @@
 
         <a-row>
             <a-col :span="12">
-                <h1>Math Topics</h1>
+                <h1 v-for="subject in getSubjects.filter((subject) => subject['_id']['$oid'] === topics[0]['subject_id'])" :key="subject['_id']['$oid']">{{ subject["subject_name"] }} Topics</h1>
             </a-col>
 
             <a-col :span="12">
@@ -141,6 +141,6 @@
 
         mounted(){},
 
-        computed: mapGetters(["getSubjectTopics"]),
+        computed: mapGetters(["getSubjectTopics", "getSubjects"]),
     }
 </script>
